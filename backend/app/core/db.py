@@ -46,6 +46,9 @@ def test_connection() -> bool:
         return False
 
 
+_UPSERT_CHUNK = 500   # righe per INSERT multi-row — riduce round trip da N a N/500
+
+
 def upsert_dataframe(
     engine: Engine,
     df: pd.DataFrame,
@@ -55,6 +58,7 @@ def upsert_dataframe(
 ) -> int:
     """
     Upsert (INSERT ... ON CONFLICT DO UPDATE) di un DataFrame in una tabella Postgres.
+    Usa INSERT multi-riga (500 righe per statement) per ridurre i round trip di rete.
 
     Args:
         engine: SQLAlchemy engine
@@ -64,8 +68,6 @@ def upsert_dataframe(
         update_cols: colonne da aggiornare in caso di conflitto. Se None, aggiorna tutto tranne conflict_cols.
 
     Returns: numero di righe processate.
-
-    Nota: per dataset grandi (>10k righe) considerare COPY + temp table. Per ora ON CONFLICT basta.
     """
     if df.empty:
         return 0
@@ -74,21 +76,31 @@ def upsert_dataframe(
     if update_cols is None:
         update_cols = [c for c in all_cols if c not in conflict_cols]
 
-    cols_sql = ", ".join(all_cols)
-    placeholders = ", ".join(f":{c}" for c in all_cols)
+    cols_sql    = ", ".join(all_cols)
     conflict_sql = ", ".join(conflict_cols)
-    update_sql = ", ".join(f"{c} = EXCLUDED.{c}" for c in update_cols)
-
-    sql = text(f"""
-        INSERT INTO {table} ({cols_sql})
-        VALUES ({placeholders})
-        ON CONFLICT ({conflict_sql})
-        DO UPDATE SET {update_sql}
-    """)
+    update_sql  = ", ".join(f"{c} = EXCLUDED.{c}" for c in update_cols)
 
     records = df.to_dict(orient="records")
+
     with engine.begin() as conn:
-        conn.execute(sql, records)
+        for i in range(0, len(records), _UPSERT_CHUNK):
+            chunk = records[i : i + _UPSERT_CHUNK]
+
+            # Costruisce VALUES (:col1_0, :col2_0), (:col1_1, :col2_1), ...
+            row_phs: list[str] = []
+            params: dict = {}
+            for j, rec in enumerate(chunk):
+                row_phs.append("(" + ", ".join(f":{c}_{j}" for c in all_cols) + ")")
+                for c in all_cols:
+                    params[f"{c}_{j}"] = rec[c]
+
+            sql = text(f"""
+                INSERT INTO {table} ({cols_sql})
+                VALUES {", ".join(row_phs)}
+                ON CONFLICT ({conflict_sql})
+                DO UPDATE SET {update_sql}
+            """)
+            conn.execute(sql, params)
 
     logger.info(f"Upsert {len(records)} righe in {table}")
     return len(records)
