@@ -1,0 +1,16 @@
+ticker,name,region,sector,asset_class,notes
+XLK,Technology Select Sector SPDR Fund,US,technology,equity_sector,SPDR Select Sector
+XLF,Financial Select Sector SPDR Fund,US,financials,equity_sector,SPDR Select Sector
+XLE,Energy Select Sector SPDR Fund,US,energy,equity_sector,SPDR Select Sector
+XLV,Health Care Select Sector SPDR Fund,US,healthcare,equity_sector,SPDR Select Sector
+XLY,Consumer Discretionary Select Sector SPDR Fund,US,consumer_discretionary,equity_sector,SPDR Select Sector
+XLP,Consumer Staples Select Sector SPDR Fund,US,consumer_staples,equity_sector,SPDR Select Sector
+XLI,Industrial Select Sector SPDR Fund,US,industrials,equity_sector,SPDR Select Sector
+XLB,Materials Select Sector SPDR Fund,US,materials,equity_sector,SPDR Select Sector
+XLU,Utilities Select Sector SPDR Fund,US,utilities,equity_sector,SPDR Select Sector
+XLRE,Real Estate Select Sector SPDR Fund,US,real_estate,equity_sector,SPDR Select Sector
+XLC,Communication Services Select Sector SPDR Fund,US,communication_services,equity_sector,SPDR Select Sector
+TLT,iShares 20+ Year Treasury Bond ETF,US,bond_long_treasury,bond,Asset class - long duration USA
+GLD,SPDR Gold Shares,GLOBAL,gold,commodity,Asset class - oro
+DBC,Invesco DB Commodity Index Tracking Fund,GLOBAL,commodity_broad,commodity,Asset class - commodity broad
+EEM,iShares MSCI Emerging Markets ETF,EM,equity_em,equity,Asset class - emerging markets

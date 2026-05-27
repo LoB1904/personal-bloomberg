@@ -1,0 +1,29 @@
+ticker,name,region,asset_class,notes
+ASML.AS,ASML Holding N.V.,EU,equity,Semicon equipment - moat estremo
+SAP.DE,SAP SE,EU,equity,Software EU
+NESN.SW,Nestle S.A.,EU,equity,Consumer staples - storia secolare
+NOVN.SW,Novartis AG,EU,equity,Pharma EU
+ROG.SW,Roche Holding AG,EU,equity,Pharma EU
+MC.PA,LVMH Moet Hennessy Louis Vuitton SE,EU,equity,Luxury - leader globale
+OR.PA,L'Oreal S.A.,EU,equity,Cosmetics
+SHEL.L,Shell plc,EU,equity,Oil major UK
+AZN.L,AstraZeneca PLC,EU,equity,Pharma UK
+RIO.L,Rio Tinto plc,EU,equity,Mining
+SIE.DE,Siemens AG,EU,equity,Industrial conglomerate
+ALV.DE,Allianz SE,EU,equity,Assicurazioni EU
+BABA,Alibaba Group Holding Limited,EM,equity,Tech CN - ADR NYSE
+TSM,Taiwan Semiconductor Manufacturing,EM,equity,Foundry leader - ADR NYSE
+0700.HK,Tencent Holdings Limited,EM,equity,Tech CN - HK listing
+005930.KS,Samsung Electronics Co. Ltd.,EM,equity,Memory + display KR
+BTC-USD,Bitcoin USD,GLOBAL,crypto,Top 1 market cap
+ETH-USD,Ethereum USD,GLOBAL,crypto,Top 2 market cap
+SOL-USD,Solana USD,GLOBAL,crypto,Top L1 alt
+BNB-USD,BNB USD,GLOBAL,crypto,Exchange token
+XRP-USD,XRP USD,GLOBAL,crypto,Top alt
+EURUSD=X,EUR/USD,GLOBAL,fx,Major pair
+GBPUSD=X,GBP/USD,GLOBAL,fx,Major pair
+USDJPY=X,USD/JPY,GLOBAL,fx,Major pair
+CL=F,WTI Crude Oil futures,GLOBAL,commodity,Crude WTI
+GC=F,Gold futures,GLOBAL,commodity,Oro futures
+SI=F,Silver futures,GLOBAL,commodity,Argento futures
+HG=F,Copper futures,GLOBAL,commodity,Rame - proxy ciclo industriale

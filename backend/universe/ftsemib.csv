@@ -1,0 +1,34 @@
+ticker,name,sector,exchange,notes
+ENI.MI,Eni S.p.A.,energy,MIL,Oil & gas integrato
+ENEL.MI,Enel S.p.A.,utilities,MIL,Utility - elettricita
+ISP.MI,Intesa Sanpaolo S.p.A.,financials,MIL,Banca - retail/corporate
+UCG.MI,UniCredit S.p.A.,financials,MIL,Banca - paneuropea
+STLAM.MI,Stellantis N.V.,consumer_discretionary,MIL,Auto - quotata anche AEX/NYSE
+RACE.MI,Ferrari N.V.,consumer_discretionary,MIL,Luxury auto - dual listed NYSE
+G.MI,Assicurazioni Generali S.p.A.,financials,MIL,Assicurazioni - mercato italiano dominante
+MB.MI,Mediobanca - Banca di Credito Finanziario S.p.A.,financials,MIL,Banca - investment / wealth
+LDO.MI,Leonardo S.p.A.,industrials,MIL,Difesa / aerospazio
+MONC.MI,Moncler S.p.A.,consumer_discretionary,MIL,Luxury apparel
+BAMI.MI,Banco BPM S.p.A.,financials,MIL,Banca - retail
+BPE.MI,BPER Banca S.p.A.,financials,MIL,Banca - retail
+TRN.MI,Terna - Rete Elettrica Nazionale S.p.A.,utilities,MIL,Trasmissione elettrica
+SRG.MI,Snam S.p.A.,utilities,MIL,Gas pipeline
+CPR.MI,Davide Campari-Milano N.V.,consumer_staples,MIL,Spirits
+AMP.MI,Amplifon S.p.A.,healthcare,MIL,Apparecchi acustici
+DIA.MI,DiaSorin S.p.A.,healthcare,MIL,Diagnostica
+FBK.MI,FinecoBank S.p.A.,financials,MIL,Banca online / brokerage
+ERG.MI,ERG S.p.A.,utilities,MIL,Rinnovabili - eolico/solare
+HER.MI,Hera S.p.A.,utilities,MIL,Multiutility
+IG.MI,Italgas S.p.A.,utilities,MIL,Distribuzione gas
+INW.MI,INWIT S.p.A.,communication_services,MIL,Torri telecom
+IP.MI,Interpump Group S.p.A.,industrials,MIL,Pompe industriali
+PRY.MI,Prysmian S.p.A.,industrials,MIL,Cavi elettrici / telecom
+REC.MI,Recordati Industria Chimica e Farmaceutica S.p.A.,healthcare,MIL,Farma specialty
+SPM.MI,Saipem S.p.A.,energy,MIL,Servizi oil & gas
+STM.MI,STMicroelectronics N.V.,technology,MIL,Semiconduttori - dual list Paris
+TEN.MI,Tenaris S.A.,energy,MIL,Tubi senza saldatura per oil & gas
+TIT.MI,Telecom Italia S.p.A.,communication_services,MIL,Telco incumbent
+PIRC.MI,Pirelli & C. S.p.A.,consumer_discretionary,MIL,Pneumatici
+UNI.MI,Unipol Gruppo S.p.A.,financials,MIL,Assicurazioni
+BMPS.MI,Banca Monte dei Paschi di Siena S.p.A.,financials,MIL,Banca - retail
+A2A.MI,A2A S.p.A.,utilities,MIL,Multiutility

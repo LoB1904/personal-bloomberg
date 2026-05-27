@@ -1,0 +1,7 @@
+ticker,name,role,asset_class,benchmark_code,notes
+VWCE.DE,Vanguard FTSE All-World UCITS ETF (Acc),buy_hold_world,equity_global,VWCE,Baseline #1 - storico pieno da 2019 su Xetra
+IWDA.AS,iShares Core MSCI World UCITS ETF (Acc),buy_hold_world_fallback,equity_global,IWDA,Fallback per storico pre-2019 (Amsterdam quote)
+SPY,SPDR S&P 500 ETF Trust,dual_momentum_us,equity_us,SPY,Baseline #3 - leg US Dual Momentum Antonacci
+EFA,iShares MSCI EAFE ETF,dual_momentum_intl,equity_intl_dev,EFA,Baseline #3 - leg international developed
+SHY,iShares 1-3 Year Treasury Bond ETF,dual_momentum_cash,bond_us_short,SHY,Baseline #3 - cash proxy quando trend negativo
+IWQU.L,iShares Edge MSCI World Quality Factor UCITS ETF (Acc),quality_benchmark,equity_factor_quality,IWQU,Benchmark fattoriale per sleeve Wealth (London quote)

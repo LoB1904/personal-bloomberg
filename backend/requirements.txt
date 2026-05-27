@@ -1,0 +1,40 @@
+# --- Personal Bloomberg / backend requirements ---
+# Versioni pinnate per riproducibilità. Aggiornare consapevolmente.
+
+# Data wrangling
+pandas==2.2.3
+numpy==2.1.3
+
+# Database (Supabase / Postgres)
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+supabase==2.10.0           # client ufficiale Python per Supabase (auth + REST)
+
+# Config / env vars
+python-dotenv==1.0.1
+pydantic==2.10.3
+pydantic-settings==2.7.0
+
+# Ingestione dati — Fase 0 (test gratuito)
+yfinance==0.2.50           # backup/test, non fonte primaria
+
+# HTTP client
+requests==2.32.3
+httpx
+
+# --- Da abilitare in Fase 1+ ---
+# pandas-ta==0.3.14b0      # indicatori tecnici
+# feedparser==6.0.11       # RSS news
+# fredapi==0.5.2           # macro FRED
+# ccxt==4.4.50             # crypto multi-exchange
+
+# --- Da abilitare in Fase 2+ ---
+# fastapi==0.115.6
+# uvicorn[standard]==0.34.0
+
+# --- Da abilitare in Fase 4 ---
+# anthropic==0.42.0        # Claude API
+
+# --- Dev tools ---
+pytest==8.3.4
+ruff==0.8.4                # linter + formatter veloce
