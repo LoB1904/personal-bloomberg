@@ -42,7 +42,7 @@ logger = logging.getLogger(__name__)
 RSS_FEEDS: dict[str, str] = {
     "bloomberg": "https://feeds.bloomberg.com/markets/news.rss",
     "ft":        "https://www.ft.com/rss/home",
-    "reuters":   "https://feeds.reuters.com/reuters/businessNews",
+    "cnbc":      "https://www.cnbc.com/id/10001147/device/rss/rss.html",
 }
 
 _SESSION = requests.Session()
