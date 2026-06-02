@@ -445,7 +445,7 @@ if __name__ == "__main__":
     if rows:
         tk = rows[0]["ticker"]
         eodhd_fmt = _to_eodhd_ticker(tk, rows[0]["exchange"])
-        print(f"DB OK — primo ticker: {tk} → EODHD format: {eodhd_fmt}")
+        print(f"DB OK -- primo ticker: {tk} -> EODHD format: {eodhd_fmt}")
         print(f"CreditBudgetGuard: {CreditBudgetGuard()}")
         print(f"Blacklist attiva: {sorted(TICKER_BLACKLIST)}")
     else:

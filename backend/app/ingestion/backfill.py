@@ -311,7 +311,9 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    # Smoke test: mostra quanti ticker necessitano di backfill
+    if len(sys.argv) > 1:
+        sys.exit(main())
+    # Smoke test senza argomenti: mostra quanti ticker necessitano di backfill
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     engine = get_engine()
     needs = _tickers_needing_backfill(engine, days=1825)
