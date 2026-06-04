@@ -3,6 +3,7 @@ import type {
   ScreenerResponse,
   PaperSignalsResponse,
   TrackRecordResponse,
+  StrategyHistoryResponse,
   ScreenerProfile,
   SignalStatus,
 } from './types'
@@ -32,6 +33,15 @@ export async function getTrackRecord(
 ): Promise<TrackRecordResponse> {
   const { data } = await http.get<TrackRecordResponse>('/paper/track-record', {
     params: { profile },
+  })
+  return data
+}
+
+export async function getStrategyHistory(
+  sampleEvery = 5,
+): Promise<StrategyHistoryResponse> {
+  const { data } = await http.get<StrategyHistoryResponse>('/paper/strategy-history', {
+    params: { sample_every: sampleEvery },
   })
   return data
 }

@@ -82,6 +82,17 @@ export interface TrackRecordResponse {
   baselines: Record<string, BaselineMetrics>
 }
 
+// ── Strategy History ─────────────────────────────────────────────────
+
+export interface StrategyDataPoint {
+  date: string
+  value: number
+}
+
+export interface StrategyHistoryResponse {
+  series: Record<string, StrategyDataPoint[]>
+}
+
 // ── Shared ────────────────────────────────────────────────────────────
 
 export type ScreenerProfile = 'speculative_trend_etf' | 'wealth_quality_garp'

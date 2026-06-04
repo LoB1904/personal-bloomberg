@@ -2,9 +2,10 @@
 Fase 2 — FastAPI endpoints per Personal Bloomberg.
 
 Endpoints:
-    GET /screener/{profile}     — ultima shortlist screener da DB
-    GET /paper/signals          — segnali paper trading con P&L
-    GET /paper/track-record     — metriche aggregate + confronto vs baseline
+    GET /screener/{profile}         — ultima shortlist screener da DB
+    GET /paper/signals              — segnali paper trading con P&L
+    GET /paper/track-record         — metriche aggregate + confronto vs baseline
+    GET /paper/strategy-history     — serie storica total_return_pct per grafici
 """
 from __future__ import annotations
 
@@ -354,3 +355,55 @@ def get_track_record(
         "screener":  screener_metrics,
         "baselines": baseline_metrics,
     }
+
+
+# ── GET /paper/strategy-history ───────────────────────────────────────
+
+@router.get("/paper/strategy-history")
+def get_strategy_history(
+    sample_every: int = Query(default=5, ge=1, le=30),
+) -> dict[str, Any]:
+    """
+    Serie storica total_return_pct per tutte le strategie in paper_strategy_daily.
+    Usato per il LineChart in TrackRecord.
+
+    Query params:
+        sample_every: campiona ogni N righe per ridurre i punti (default 5 = settimanale)
+
+    Response:
+        {
+            "series": {
+                "<strategy_code>": [
+                    {"date": "YYYY-MM-DD", "value": float},
+                    ...
+                ]
+            }
+        }
+    """
+    sql = text("""
+        SELECT strategy_code, date, total_return_pct
+        FROM paper_strategy_daily
+        WHERE total_return_pct IS NOT NULL
+        ORDER BY strategy_code, date
+    """)
+    with _engine().connect() as conn:
+        rows = conn.execute(sql).fetchall()
+
+    # Raggruppa per strategia, poi campiona
+    by_strategy: dict[str, list] = {}
+    for r in rows:
+        by_strategy.setdefault(r.strategy_code, []).append(r)
+
+    series: dict[str, list[dict]] = {}
+    for strat, strat_rows in by_strategy.items():
+        # Campiona ogni sample_every righe, includi sempre primo e ultimo
+        sampled = strat_rows[::sample_every]
+        if strat_rows[-1] not in sampled:
+            sampled = list(sampled) + [strat_rows[-1]]
+
+        series[strat] = [
+            {"date": r.date.isoformat(), "value": round(float(r.total_return_pct), 2)}
+            for r in sampled
+        ]
+
+    return {"series": series}
