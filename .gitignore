@@ -50,3 +50,7 @@ Thumbs.db
 .coverage
 htmlcov/
 coverage.xml
+
+# --- Runtime state ---
+.backfill_checkpoint.json
+*.checkpoint.json
