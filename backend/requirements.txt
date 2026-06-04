@@ -27,6 +27,9 @@ feedparser==6.0.11         # RSS news aggregator (news.py)
 tenacity==9.0.0            # Retry con backoff esponenziale (fundamentals.py)
 tqdm==4.67.1               # Progress bar per backfill (backfill.py)
 
+# Analytics — Fase 2
+# pandas-ta: non supporta Python 3.10 — technical.py usa pure pandas (matematica identica)
+
 # --- Da abilitare in Fase 1 (richiedono API key / test prima) ---
 # fredapi==0.5.2           # macro FRED — alternativa diretta alla REST API già implementata
 # ccxt==4.4.50             # crypto multi-exchange
@@ -35,7 +38,6 @@ tqdm==4.67.1               # Progress bar per backfill (backfill.py)
 # eodhd                    # SDK ufficiale EODHD (opzionale, usiamo requests diretto)
 
 # --- Da abilitare in Fase 2+ ---
-# pandas-ta==0.3.14b0      # indicatori tecnici
 # fastapi==0.115.6
 # uvicorn[standard]==0.34.0
 
