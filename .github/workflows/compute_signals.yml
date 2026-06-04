@@ -1,0 +1,83 @@
+name: Compute Signals
+
+on:
+  schedule:
+    # 22:00 UTC, lun–ven
+    - cron: "0 22 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  compute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: backend
+
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      SUPABASE_URL:      ${{ secrets.SUPABASE_URL }}
+      SUPABASE_KEY:      ${{ secrets.SUPABASE_KEY }}
+      EODHD_API_KEY:     ${{ secrets.EODHD_API_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run screener
+        id: screener
+        run: python -m app.analytics.screener
+        continue-on-error: true
+
+      - name: Log screener failure
+        if: steps.screener.outcome == 'failure'
+        run: echo "::error::Screener failed — segnali non aggiornati"
+
+      - name: Run signal logger
+        id: signal_logger
+        run: python -m app.paper_trading.signal_logger
+        continue-on-error: true
+
+      - name: Log signal_logger failure
+        if: steps.signal_logger.outcome == 'failure'
+        run: echo "::error::Signal logger failed — nessun nuovo segnale loggato"
+
+      - name: Run P&L calculator
+        id: pnl_calculator
+        run: python -m app.paper_trading.pnl_calculator
+        continue-on-error: true
+
+      - name: Log pnl_calculator failure
+        if: steps.pnl_calculator.outcome == 'failure'
+        run: echo "::error::P&L calculator failed — exit price non aggiornati"
+
+      - name: Run benchmark compare
+        id: benchmark_compare
+        run: python -m app.paper_trading.benchmark_compare
+        continue-on-error: true
+
+      - name: Log benchmark_compare failure
+        if: steps.benchmark_compare.outcome == 'failure'
+        run: echo "::error::Benchmark compare failed"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### Compute Signals — $(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Step | Esito |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| screener          | ${{ steps.screener.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| signal_logger     | ${{ steps.signal_logger.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| pnl_calculator    | ${{ steps.pnl_calculator.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| benchmark_compare | ${{ steps.benchmark_compare.outcome }} |" >> $GITHUB_STEP_SUMMARY
