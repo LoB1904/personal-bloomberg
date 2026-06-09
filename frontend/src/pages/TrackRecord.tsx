@@ -107,6 +107,10 @@ export default function TrackRecord() {
     Promise.all([getTrackRecord(), getStrategyHistory()])
       .then(([m, h]) => {
         if (cancelled) return
+        console.log('[TrackRecord] strategy-history series:')
+        for (const [code, pts] of Object.entries(h.series)) {
+          console.log(`  ${code}: ${pts.length} punti  |  da ${pts[0]?.date} a ${pts[pts.length - 1]?.date}`)
+        }
         setMetrics(m)
         setHistory(h)
       })
@@ -365,6 +369,7 @@ function PerformanceChart({
             interval="preserveStartEnd"
           />
           <YAxis
+            domain={['auto', 'auto']}
             tickFormatter={v => `${v}%`}
             tick={{ fill: '#64748b', fontSize: 11 }}
             axisLine={{ stroke: '#334155' }}
@@ -388,7 +393,7 @@ function PerformanceChart({
               stroke={STRATEGY_META[code]?.color ?? '#94a3b8'}
               strokeWidth={1.5}
               dot={false}
-              connectNulls={false}
+              connectNulls={true}
               isAnimationActive={false}
             />
           ))}
