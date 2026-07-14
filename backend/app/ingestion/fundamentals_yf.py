@@ -113,17 +113,44 @@ def _fiscal_period(info: dict, snapshot: date) -> str:
     return f"FY{snapshot.year}"
 
 
-def _load_tickers(engine, ticker: str | None, limit: int | None) -> list[dict]:
-    """Carica i single-name attivi da processare."""
+def _universe_where() -> str:
     groups_sql = ", ".join(f"'{g}'" for g in _UNIVERSE_GROUPS)
-    where = f"is_active = TRUE AND universe_group IN ({groups_sql})"
+    return f"is_active = TRUE AND universe_group IN ({groups_sql})"
+
+
+def _count_universe(engine) -> int:
+    """Totale single-name attivi processabili (serve al calcolo dell'offset rotante)."""
+    sql = text(f"SELECT COUNT(*) FROM ticker_universe WHERE {_universe_where()}")
+    with engine.connect() as conn:
+        return int(conn.execute(sql).scalar() or 0)
+
+
+def _rotating_offset(engine, limit: int | None) -> int:
+    """
+    Offset che ruota di 'limit' ogni giorno, così ogni run processa il blocco
+    successivo per id e in ~ceil(totale/limit) giorni copre tutto l'universo.
+    Deterministico (basato sul giorno), senza stato persistente.
+    """
+    if not limit:
+        return 0
+    total = _count_universe(engine)
+    if total <= limit:
+        return 0
+    num_batches = -(-total // limit)                 # ceil(total / limit)
+    batch_idx   = date.today().toordinal() % num_batches
+    return batch_idx * limit
+
+
+def _load_tickers(engine, ticker: str | None, limit: int | None, offset: int = 0) -> list[dict]:
+    """Carica i single-name attivi da processare (finestra LIMIT/OFFSET per id)."""
+    where = _universe_where()
     params: dict = {}
     if ticker:
         where += " AND ticker = :tk"
         params["tk"] = ticker
     sql = f"SELECT id, ticker FROM ticker_universe WHERE {where} ORDER BY id"
-    if limit:
-        sql += f" LIMIT {int(limit)}"
+    if limit and not ticker:
+        sql += f" LIMIT {int(limit)} OFFSET {int(offset)}"
     with engine.connect() as conn:
         rows = conn.execute(text(sql), params).fetchall()
     return [{"id": r.id, "ticker": r.ticker} for r in rows]
@@ -205,23 +232,30 @@ def fetch_fundamentals_yf(
     engine=None,
     ticker: str | None = None,
     limit: int | None = None,
+    batch_sleep: float = _SLEEP_BETWEEN,
 ) -> int:
     """
     Fetcha fondamentali via yfinance (fallback FMP) per l'universo single-name.
+    Con limit impostato processa una finestra di N ticker che ruota ogni giorno
+    (offset per giorno), coprendo l'intero universo in ~ceil(totale/limit) run.
     Ritorna il numero di righe upsertate in fundamentals_snapshot.
     """
     if engine is None:
         engine = get_engine()
 
     fmp_key  = getattr(settings, "fmp_api_key", None) or os.getenv("FMP_API_KEY", "")
-    tickers  = _load_tickers(engine, ticker, limit)
+    offset   = _rotating_offset(engine, limit) if not ticker else 0
+    tickers  = _load_tickers(engine, ticker, limit, offset)
     snapshot = date.today()
 
     if not tickers:
         logger.warning("Nessun ticker da processare")
         return 0
 
-    logger.info(f"yfinance fundamentals: {len(tickers)} ticker | snapshot={snapshot}")
+    logger.info(
+        f"yfinance fundamentals: {len(tickers)} ticker "
+        f"(limit={limit}, offset={offset}, sleep={batch_sleep}s) | snapshot={snapshot}"
+    )
 
     rows: list[dict] = []
     n_yf = n_fmp = n_skip = 0
@@ -253,7 +287,7 @@ def fetch_fundamentals_yf(
         if i % _LOG_EVERY == 0:
             logger.info(f"{i}/{len(tickers)} completati... (yf={n_yf} fmp={n_fmp} skip={n_skip})")
 
-        time.sleep(_SLEEP_BETWEEN)
+        time.sleep(batch_sleep)
 
     if not rows:
         logger.warning("Nessun fondamentale recuperato")
@@ -277,10 +311,13 @@ def main() -> int:
     )
     parser = argparse.ArgumentParser(description="Fetch fondamentali via yfinance (+ FMP fallback)")
     parser.add_argument("--ticker", type=str, default=None, help="Un singolo ticker (es. AAPL)")
-    parser.add_argument("--limit",  type=int, default=None, help="Processa solo i primi N ticker")
+    parser.add_argument("--limit",  type=int, default=200,
+                        help="Max ticker per run (finestra rotante per giorno). Default 200")
+    parser.add_argument("--batch-sleep", type=float, default=0.3,
+                        help="Secondi di pausa tra un ticker e l'altro. Default 0.3")
     args = parser.parse_args()
 
-    n = fetch_fundamentals_yf(ticker=args.ticker, limit=args.limit)
+    n = fetch_fundamentals_yf(ticker=args.ticker, limit=args.limit, batch_sleep=args.batch_sleep)
     print(f"Upsertati {n} snapshot in fundamentals_snapshot")
     return 0
 

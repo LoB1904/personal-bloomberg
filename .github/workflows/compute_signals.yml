@@ -44,7 +44,7 @@ jobs:
       # 1 — Aggiorna fondamentali (yfinance + FMP fallback)
       - name: Ingest fundamentals (yfinance)
         id: fundamentals
-        run: python -m app.ingestion.fundamentals_yf
+        run: python -m app.ingestion.fundamentals_yf --limit 200 --batch-sleep 0.3
         continue-on-error: true
 
       - name: Log fundamentals failure
