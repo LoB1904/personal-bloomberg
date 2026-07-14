@@ -2,23 +2,30 @@ name: Compute Signals
 
 on:
   schedule:
-    # 22:00 UTC, lun–ven
-    - cron: "0 22 * * 1-5"
+    # 07:00 UTC ogni giorno = 08:00 CET (09:00 CEST in ora legale)
+    - cron: "0 7 * * *"
   workflow_dispatch:
 
 jobs:
   compute:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     defaults:
       run:
         working-directory: backend
 
     env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      SUPABASE_URL:      ${{ secrets.SUPABASE_URL }}
-      SUPABASE_KEY:      ${{ secrets.SUPABASE_KEY }}
-      EODHD_API_KEY:     ${{ secrets.EODHD_API_KEY }}
+      # DB (config.py richiede SUPABASE_URL, SUPABASE_ANON_KEY e DATABASE_URL per l'import)
+      DATABASE_URL:       ${{ secrets.DATABASE_URL }}
+      SUPABASE_URL:       ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY:  ${{ secrets.SUPABASE_ANON_KEY }}
+      # Fonti dati
+      EODHD_API_KEY:      ${{ secrets.EODHD_API_KEY }}
+      FMP_API_KEY:        ${{ secrets.FMP_API_KEY }}
+      # AI + notifiche
+      ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
 
     steps:
       - name: Checkout repository
@@ -34,6 +41,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # 1 — Aggiorna fondamentali (yfinance + FMP fallback)
+      - name: Ingest fundamentals (yfinance)
+        id: fundamentals
+        run: python -m app.ingestion.fundamentals_yf
+        continue-on-error: true
+
+      - name: Log fundamentals failure
+        if: steps.fundamentals.outcome == 'failure'
+        run: echo "::error::Ingestione fondamentali fallita"
+
+      # 2 — Calcola screener
       - name: Run screener
         id: screener
         run: python -m app.analytics.screener
@@ -41,8 +59,9 @@ jobs:
 
       - name: Log screener failure
         if: steps.screener.outcome == 'failure'
-        run: echo "::error::Screener failed — segnali non aggiornati"
+        run: echo "::error::Screener fallito — segnali non aggiornati"
 
+      # 3 — Logga segnali paper trading
       - name: Run signal logger
         id: signal_logger
         run: python -m app.paper_trading.signal_logger
@@ -50,8 +69,9 @@ jobs:
 
       - name: Log signal_logger failure
         if: steps.signal_logger.outcome == 'failure'
-        run: echo "::error::Signal logger failed — nessun nuovo segnale loggato"
+        run: echo "::error::Signal logger fallito — nessun nuovo segnale loggato"
 
+      # 4 — Aggiorna P&L
       - name: Run P&L calculator
         id: pnl_calculator
         run: python -m app.paper_trading.pnl_calculator
@@ -59,16 +79,17 @@ jobs:
 
       - name: Log pnl_calculator failure
         if: steps.pnl_calculator.outcome == 'failure'
-        run: echo "::error::P&L calculator failed — exit price non aggiornati"
+        run: echo "::error::P&L calculator fallito — prezzi milestone non aggiornati"
 
-      - name: Run benchmark compare
-        id: benchmark_compare
-        run: python -m app.paper_trading.benchmark_compare
+      # 5 — Invia alert Telegram
+      - name: Send Telegram alert
+        id: telegram
+        run: python -m app.notifications.telegram
         continue-on-error: true
 
-      - name: Log benchmark_compare failure
-        if: steps.benchmark_compare.outcome == 'failure'
-        run: echo "::error::Benchmark compare failed"
+      - name: Log telegram failure
+        if: steps.telegram.outcome == 'failure'
+        run: echo "::error::Invio alert Telegram fallito"
 
       - name: Summary
         if: always()
@@ -77,7 +98,8 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Step | Esito |" >> $GITHUB_STEP_SUMMARY
           echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| screener          | ${{ steps.screener.outcome }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| signal_logger     | ${{ steps.signal_logger.outcome }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| pnl_calculator    | ${{ steps.pnl_calculator.outcome }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| benchmark_compare | ${{ steps.benchmark_compare.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| fundamentals (yfinance) | ${{ steps.fundamentals.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| screener                | ${{ steps.screener.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| signal_logger           | ${{ steps.signal_logger.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| pnl_calculator          | ${{ steps.pnl_calculator.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| telegram                | ${{ steps.telegram.outcome }} |" >> $GITHUB_STEP_SUMMARY
