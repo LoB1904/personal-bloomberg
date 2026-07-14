@@ -27,6 +27,9 @@ feedparser==6.0.11         # RSS news aggregator (news.py)
 tenacity==9.0.0            # Retry con backoff esponenziale (fundamentals.py)
 tqdm==4.67.1               # Progress bar per backfill (backfill.py)
 
+# AI Layer — Fase 4 (alert Telegram con narrativa Claude)
+anthropic==0.42.0          # Claude API (notifications/telegram.py)
+
 # Analytics — Fase 2
 # pandas-ta: non supporta Python 3.10 — technical.py usa pure pandas (matematica identica)
 

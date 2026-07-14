@@ -50,11 +50,11 @@ class ScreenerOrchestrator:
     # ── Helpers DB ────────────────────────────────────────────────────
 
     def _fetch_single_name_ids(self) -> list[dict]:
-        """Ticker single-name attivi (sp100, ftsemib, wildcard)."""
+        """Ticker single-name attivi (sp100, sp500, ftsemib, wildcard)."""
         sql = text("""
             SELECT id, ticker
             FROM ticker_universe
-            WHERE universe_group IN ('sp100', 'ftsemib', 'wildcard')
+            WHERE universe_group IN ('sp100', 'sp500', 'ftsemib', 'wildcard')
               AND is_active = TRUE
             ORDER BY id
         """)

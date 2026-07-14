@@ -24,6 +24,7 @@ UNIVERSE_FILES = {
     "baselines.csv":   {"universe_group": "baseline",   "asset_class_default": "etf"},
     "sector_etfs.csv": {"universe_group": "sector_etf", "asset_class_default": "etf"},
     "sp100.csv":       {"universe_group": "sp100",      "asset_class_default": "equity"},
+    "sp500.csv":       {"universe_group": "sp500",      "asset_class_default": "equity"},
     "ftsemib.csv":     {"universe_group": "ftsemib",    "asset_class_default": "equity"},
     "wildcards.csv":   {"universe_group": "wildcard",   "asset_class_default": "equity"},
 }

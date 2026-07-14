@@ -1,0 +1,504 @@
+ticker,name,sector,exchange
+MMM,3M,industrials,NYSE
+AOS,A. O. Smith,industrials,NYSE
+ABT,Abbott Laboratories,health_care,NYSE
+ABBV,AbbVie,health_care,NYSE
+ACN,Accenture,technology,NYSE
+ADBE,Adobe Inc.,technology,NYSE
+AMD,Advanced Micro Devices,technology,NYSE
+AES,AES Corporation,utilities,NYSE
+AFL,Aflac,financials,NYSE
+A,Agilent Technologies,health_care,NYSE
+APD,Air Products,materials,NYSE
+ABNB,Airbnb,consumer_discretionary,NYSE
+AKAM,Akamai Technologies,technology,NYSE
+ALB,Albemarle Corporation,materials,NYSE
+ARE,Alexandria Real Estate Equities,real_estate,NYSE
+ALGN,Align Technology,health_care,NYSE
+ALLE,Allegion,industrials,NYSE
+LNT,Alliant Energy,utilities,NYSE
+ALL,Allstate,financials,NYSE
+GOOGL,Alphabet Inc. (Class A),communication_services,NYSE
+GOOG,Alphabet Inc. (Class C),communication_services,NYSE
+MO,Altria,consumer_staples,NYSE
+AMZN,Amazon,consumer_discretionary,NYSE
+AMCR,Amcor,materials,NYSE
+AEE,Ameren,utilities,NYSE
+AEP,American Electric Power,utilities,NYSE
+AXP,American Express,financials,NYSE
+AIG,American International Group,financials,NYSE
+AMT,American Tower,real_estate,NYSE
+AWK,American Water Works,utilities,NYSE
+AMP,Ameriprise Financial,financials,NYSE
+AME,Ametek,industrials,NYSE
+AMGN,Amgen,health_care,NYSE
+APH,Amphenol,technology,NYSE
+ADI,Analog Devices,technology,NYSE
+AON,Aon plc,financials,NYSE
+APA,APA Corporation,energy,NYSE
+APO,Apollo Global Management,financials,NYSE
+AAPL,Apple Inc.,technology,NYSE
+AMAT,Applied Materials,technology,NYSE
+APP,AppLovin,technology,NYSE
+APTV,Aptiv,consumer_discretionary,NYSE
+ACGL,Arch Capital Group,financials,NYSE
+ADM,Archer Daniels Midland,consumer_staples,NYSE
+ARES,Ares Management,financials,NYSE
+ANET,Arista Networks,technology,NYSE
+AJG,Arthur J. Gallagher & Co.,financials,NYSE
+AIZ,Assurant,financials,NYSE
+T,AT&T,communication_services,NYSE
+ATO,Atmos Energy,utilities,NYSE
+ADSK,Autodesk,technology,NYSE
+ADP,Automatic Data Processing,industrials,NYSE
+AZO,AutoZone,consumer_discretionary,NYSE
+AVB,AvalonBay Communities,real_estate,NYSE
+AVY,Avery Dennison,materials,NYSE
+AXON,Axon Enterprise,industrials,NYSE
+BKR,Baker Hughes,energy,NYSE
+BALL,Ball Corporation,materials,NYSE
+BAC,Bank of America,financials,NYSE
+BAX,Baxter International,health_care,NYSE
+BDX,Becton Dickinson,health_care,NYSE
+BRK-B,Berkshire Hathaway,financials,NYSE
+BBY,Best Buy,consumer_discretionary,NYSE
+TECH,Bio-Techne,health_care,NYSE
+BIIB,Biogen,health_care,NYSE
+BLK,BlackRock,financials,NYSE
+BX,Blackstone Inc.,financials,NYSE
+XYZ,Block  Inc.,financials,NYSE
+BNY,BNY Mellon,financials,NYSE
+BA,Boeing,industrials,NYSE
+BKNG,Booking Holdings,consumer_discretionary,NYSE
+BSX,Boston Scientific,health_care,NYSE
+BMY,Bristol Myers Squibb,health_care,NYSE
+AVGO,Broadcom,technology,NYSE
+BR,Broadridge Financial Solutions,industrials,NYSE
+BRO,Brown & Brown,financials,NYSE
+BF-B,Brown–Forman,consumer_staples,NYSE
+BLDR,Builders FirstSource,industrials,NYSE
+BG,Bunge Global,consumer_staples,NYSE
+BXP,BXP  Inc.,real_estate,NYSE
+CHRW,C.H. Robinson,industrials,NYSE
+CDNS,Cadence Design Systems,technology,NYSE
+CPT,Camden Property Trust,real_estate,NYSE
+COF,Capital One,financials,NYSE
+CAH,Cardinal Health,health_care,NYSE
+CCL,Carnival Corporation,consumer_discretionary,NYSE
+CARR,Carrier Global,industrials,NYSE
+CVNA,Carvana,consumer_discretionary,NYSE
+CASY,Casey's,consumer_staples,NYSE
+CAT,Caterpillar Inc.,industrials,NYSE
+CBOE,Cboe Global Markets,financials,NYSE
+CBRE,CBRE Group,real_estate,NYSE
+CDW,CDW Corporation,technology,NYSE
+COR,Cencora,health_care,NYSE
+CNC,Centene Corporation,health_care,NYSE
+CNP,CenterPoint Energy,utilities,NYSE
+CF,CF Industries,materials,NYSE
+CRL,Charles River Laboratories,health_care,NYSE
+SCHW,Charles Schwab Corporation,financials,NYSE
+CHTR,Charter Communications,communication_services,NYSE
+CVX,Chevron Corporation,energy,NYSE
+CMG,Chipotle Mexican Grill,consumer_discretionary,NYSE
+CB,Chubb Limited,financials,NYSE
+CHD,Church & Dwight,consumer_staples,NYSE
+CIEN,Ciena,technology,NYSE
+CI,Cigna,health_care,NYSE
+CINF,Cincinnati Financial,financials,NYSE
+CTAS,Cintas,industrials,NYSE
+CSCO,Cisco,technology,NYSE
+C,Citigroup,financials,NYSE
+CFG,Citizens Financial Group,financials,NYSE
+CLX,Clorox,consumer_staples,NYSE
+CME,CME Group,financials,NYSE
+CMS,CMS Energy,utilities,NYSE
+KO,Coca-Cola Company (The),consumer_staples,NYSE
+CTSH,Cognizant,technology,NYSE
+COHR,Coherent Corp.,technology,NYSE
+COIN,Coinbase,financials,NYSE
+CL,Colgate-Palmolive,consumer_staples,NYSE
+CMCSA,Comcast,communication_services,NYSE
+FIX,Comfort Systems USA,industrials,NYSE
+COP,ConocoPhillips,energy,NYSE
+ED,Consolidated Edison,utilities,NYSE
+STZ,Constellation Brands,consumer_staples,NYSE
+CEG,Constellation Energy,utilities,NYSE
+COO,Cooper Companies (The),health_care,NYSE
+CPRT,Copart,industrials,NYSE
+GLW,Corning Inc.,technology,NYSE
+CPAY,Corpay,financials,NYSE
+CTVA,Corteva,materials,NYSE
+CSGP,CoStar Group,real_estate,NYSE
+COST,Costco,consumer_staples,NYSE
+CRH,CRH plc,materials,NYSE
+CRWD,CrowdStrike,technology,NYSE
+CCI,Crown Castle,real_estate,NYSE
+CSX,CSX Corporation,industrials,NYSE
+CMI,Cummins,industrials,NYSE
+CVS,CVS Health,health_care,NYSE
+DHR,Danaher Corporation,health_care,NYSE
+DRI,Darden Restaurants,consumer_discretionary,NYSE
+DDOG,Datadog,technology,NYSE
+DVA,DaVita,health_care,NYSE
+DECK,Deckers Brands,consumer_discretionary,NYSE
+DE,Deere & Company,industrials,NYSE
+DELL,Dell Technologies,technology,NYSE
+DAL,Delta Air Lines,industrials,NYSE
+DVN,Devon Energy,energy,NYSE
+DXCM,Dexcom,health_care,NYSE
+FANG,Diamondback Energy,energy,NYSE
+DLR,Digital Realty,real_estate,NYSE
+DG,Dollar General,consumer_staples,NYSE
+DLTR,Dollar Tree,consumer_staples,NYSE
+D,Dominion Energy,utilities,NYSE
+DPZ,Domino's,consumer_discretionary,NYSE
+DASH,DoorDash,consumer_discretionary,NYSE
+DOV,Dover Corporation,industrials,NYSE
+DOW,Dow Inc.,materials,NYSE
+DHI,D. R. Horton,consumer_discretionary,NYSE
+DTE,DTE Energy,utilities,NYSE
+DUK,Duke Energy,utilities,NYSE
+DD,DuPont,materials,NYSE
+ETN,Eaton Corporation,industrials,NYSE
+EBAY,eBay Inc.,consumer_discretionary,NYSE
+ECHO,EchoStar,communication_services,NYSE
+ECL,Ecolab,materials,NYSE
+EIX,Edison International,utilities,NYSE
+EW,Edwards Lifesciences,health_care,NYSE
+EA,Electronic Arts,communication_services,NYSE
+ELV,Elevance Health,health_care,NYSE
+EME,Emcor,industrials,NYSE
+EMR,Emerson Electric,industrials,NYSE
+ETR,Entergy,utilities,NYSE
+EOG,EOG Resources,energy,NYSE
+EQT,EQT Corporation,energy,NYSE
+EFX,Equifax,industrials,NYSE
+EQIX,Equinix,real_estate,NYSE
+EQR,Equity Residential,real_estate,NYSE
+ERIE,Erie Indemnity,financials,NYSE
+ESS,Essex Property Trust,real_estate,NYSE
+EL,Estée Lauder Companies (The),consumer_staples,NYSE
+EG,Everest Group,financials,NYSE
+EVRG,Evergy,utilities,NYSE
+ES,Eversource Energy,utilities,NYSE
+EXC,Exelon,utilities,NYSE
+EXE,Expand Energy,energy,NYSE
+EXPE,Expedia Group,consumer_discretionary,NYSE
+EXPD,Expeditors International,industrials,NYSE
+EXR,Extra Space Storage,real_estate,NYSE
+XOM,ExxonMobil,energy,NYSE
+FFIV,F5  Inc.,technology,NYSE
+FDS,FactSet,financials,NYSE
+FICO,Fair Isaac,technology,NYSE
+FAST,Fastenal,industrials,NYSE
+FRT,Federal Realty Investment Trust,real_estate,NYSE
+FDX,FedEx,industrials,NYSE
+FDXF,FedEx Freight,industrials,NYSE
+FIS,Fidelity National Information Services,financials,NYSE
+FITB,Fifth Third Bancorp,financials,NYSE
+FSLR,First Solar,technology,NYSE
+FE,FirstEnergy,utilities,NYSE
+FISV,Fiserv,financials,NYSE
+FLEX,Flex Ltd.,technology,NYSE
+F,Ford Motor Company,consumer_discretionary,NYSE
+FTNT,Fortinet,technology,NYSE
+FTV,Fortive,industrials,NYSE
+FOXA,Fox Corporation (Class A),communication_services,NYSE
+FOX,Fox Corporation (Class B),communication_services,NYSE
+BEN,Franklin Resources,financials,NYSE
+FCX,Freeport-McMoRan,materials,NYSE
+GRMN,Garmin,consumer_discretionary,NYSE
+IT,Gartner,technology,NYSE
+GE,GE Aerospace,industrials,NYSE
+GEHC,GE HealthCare,health_care,NYSE
+GEV,GE Vernova,industrials,NYSE
+GEN,Gen Digital,technology,NYSE
+GNRC,Generac,industrials,NYSE
+GD,General Dynamics,industrials,NYSE
+GIS,General Mills,consumer_staples,NYSE
+GM,General Motors,consumer_discretionary,NYSE
+GPC,Genuine Parts Company,consumer_discretionary,NYSE
+GILD,Gilead Sciences,health_care,NYSE
+GPN,Global Payments,financials,NYSE
+GL,Globe Life,financials,NYSE
+GDDY,GoDaddy,technology,NYSE
+GS,Goldman Sachs,financials,NYSE
+HAL,Halliburton,energy,NYSE
+HIG,Hartford (The),financials,NYSE
+HAS,Hasbro,consumer_discretionary,NYSE
+HCA,HCA Healthcare,health_care,NYSE
+DOC,Healthpeak Properties,real_estate,NYSE
+HSIC,Henry Schein,health_care,NYSE
+HSY,Hershey Company (The),consumer_staples,NYSE
+HPE,Hewlett Packard Enterprise,technology,NYSE
+HLT,Hilton Worldwide,consumer_discretionary,NYSE
+HD,Home Depot (The),consumer_discretionary,NYSE
+HONA,Honeywell Aerospace,industrials,NYSE
+HON,Honeywell Technologies,industrials,NYSE
+HRL,Hormel Foods,consumer_staples,NYSE
+HST,Host Hotels & Resorts,real_estate,NYSE
+HWM,Howmet Aerospace,industrials,NYSE
+HPQ,HP Inc.,technology,NYSE
+HUBB,Hubbell Incorporated,industrials,NYSE
+HUM,Humana,health_care,NYSE
+HBAN,Huntington Bancshares,financials,NYSE
+HII,Huntington Ingalls Industries,industrials,NYSE
+IBM,IBM,technology,NYSE
+IEX,IDEX Corporation,industrials,NYSE
+IDXX,Idexx Laboratories,health_care,NYSE
+ITW,Illinois Tool Works,industrials,NYSE
+INCY,Incyte,health_care,NYSE
+IR,Ingersoll Rand,industrials,NYSE
+PODD,Insulet Corporation,health_care,NYSE
+INTC,Intel,technology,NYSE
+IBKR,Interactive Brokers,financials,NYSE
+ICE,Intercontinental Exchange,financials,NYSE
+IFF,International Flavors & Fragrances,materials,NYSE
+IP,International Paper,materials,NYSE
+INTU,Intuit,technology,NYSE
+ISRG,Intuitive Surgical,health_care,NYSE
+IVZ,Invesco,financials,NYSE
+INVH,Invitation Homes,real_estate,NYSE
+IQV,IQVIA,health_care,NYSE
+IRM,Iron Mountain,real_estate,NYSE
+JBHT,J.B. Hunt,industrials,NYSE
+JBL,Jabil,technology,NYSE
+JKHY,Jack Henry & Associates,financials,NYSE
+J,Jacobs Solutions,industrials,NYSE
+JNJ,Johnson & Johnson,health_care,NYSE
+JCI,Johnson Controls,industrials,NYSE
+JPM,JPMorgan Chase,financials,NYSE
+KVUE,Kenvue,consumer_staples,NYSE
+KDP,Keurig Dr Pepper,consumer_staples,NYSE
+KEY,KeyCorp,financials,NYSE
+KEYS,Keysight Technologies,technology,NYSE
+KMB,Kimberly-Clark,consumer_staples,NYSE
+KIM,Kimco Realty,real_estate,NYSE
+KMI,Kinder Morgan,energy,NYSE
+KKR,KKR & Co.,financials,NYSE
+KLAC,KLA Corporation,technology,NYSE
+KHC,Kraft Heinz,consumer_staples,NYSE
+KR,Kroger,consumer_staples,NYSE
+LHX,L3Harris,industrials,NYSE
+LH,Labcorp,health_care,NYSE
+LRCX,Lam Research,technology,NYSE
+LVS,Las Vegas Sands,consumer_discretionary,NYSE
+LDOS,Leidos,industrials,NYSE
+LEN,Lennar,consumer_discretionary,NYSE
+LII,Lennox International,industrials,NYSE
+LLY,Lilly (Eli),health_care,NYSE
+LIN,Linde plc,materials,NYSE
+LYV,Live Nation Entertainment,communication_services,NYSE
+LMT,Lockheed Martin,industrials,NYSE
+L,Loews Corporation,financials,NYSE
+LOW,Lowe's,consumer_discretionary,NYSE
+LULU,Lululemon Athletica,consumer_discretionary,NYSE
+LITE,Lumentum,technology,NYSE
+LYB,LyondellBasell,materials,NYSE
+MTB,M&T Bank,financials,NYSE
+MPC,Marathon Petroleum,energy,NYSE
+MAR,Marriott International,consumer_discretionary,NYSE
+MRSH,Marsh McLennan,financials,NYSE
+MLM,Martin Marietta Materials,materials,NYSE
+MRVL,Marvell Technology,technology,NYSE
+MAS,Masco,industrials,NYSE
+MA,Mastercard,financials,NYSE
+MKC,McCormick & Company,consumer_staples,NYSE
+MCD,McDonald's,consumer_discretionary,NYSE
+MCK,McKesson Corporation,health_care,NYSE
+MDT,Medtronic,health_care,NYSE
+MRK,Merck & Co.,health_care,NYSE
+META,Meta Platforms,communication_services,NYSE
+MET,MetLife,financials,NYSE
+MTD,Mettler Toledo,health_care,NYSE
+MGM,MGM Resorts,consumer_discretionary,NYSE
+MCHP,Microchip Technology,technology,NYSE
+MU,Micron Technology,technology,NYSE
+MSFT,Microsoft,technology,NYSE
+MAA,Mid-America Apartment Communities,real_estate,NYSE
+MRNA,Moderna,health_care,NYSE
+TAP,Molson Coors Beverage Company,consumer_staples,NYSE
+MDLZ,Mondelez International,consumer_staples,NYSE
+MPWR,Monolithic Power Systems,technology,NYSE
+MNST,Monster Beverage,consumer_staples,NYSE
+MCO,Moody's Corporation,financials,NYSE
+MS,Morgan Stanley,financials,NYSE
+MOS,Mosaic Company (The),materials,NYSE
+MSI,Motorola Solutions,technology,NYSE
+MSCI,MSCI Inc.,financials,NYSE
+NDAQ,Nasdaq  Inc.,financials,NYSE
+NTAP,NetApp,technology,NYSE
+NFLX,Netflix,communication_services,NYSE
+NEM,Newmont,materials,NYSE
+NWSA,News Corp (Class A),communication_services,NYSE
+NWS,News Corp (Class B),communication_services,NYSE
+NEE,NextEra Energy,utilities,NYSE
+NKE,Nike  Inc.,consumer_discretionary,NYSE
+NI,NiSource,utilities,NYSE
+NDSN,Nordson Corporation,industrials,NYSE
+NSC,Norfolk Southern,industrials,NYSE
+NTRS,Northern Trust,financials,NYSE
+NOC,Northrop Grumman,industrials,NYSE
+NCLH,Norwegian Cruise Line Holdings,consumer_discretionary,NYSE
+NRG,NRG Energy,utilities,NYSE
+NUE,Nucor,materials,NYSE
+NVDA,Nvidia,technology,NYSE
+NVR,NVR  Inc.,consumer_discretionary,NYSE
+NXPI,NXP Semiconductors,technology,NYSE
+ORLY,O’Reilly Automotive,consumer_discretionary,NYSE
+OXY,Occidental Petroleum,energy,NYSE
+ODFL,Old Dominion,industrials,NYSE
+OMC,Omnicom Group,communication_services,NYSE
+ON,ON Semiconductor,technology,NYSE
+OKE,Oneok,energy,NYSE
+ORCL,Oracle Corporation,technology,NYSE
+OTIS,Otis Worldwide,industrials,NYSE
+PCAR,Paccar,industrials,NYSE
+PKG,Packaging Corporation of America,materials,NYSE
+PLTR,Palantir Technologies,technology,NYSE
+PANW,Palo Alto Networks,technology,NYSE
+PSKY,Paramount Skydance Corporation,communication_services,NYSE
+PH,Parker Hannifin,industrials,NYSE
+PAYX,Paychex,industrials,NYSE
+PYPL,PayPal,financials,NYSE
+PNR,Pentair,industrials,NYSE
+PEP,PepsiCo,consumer_staples,NYSE
+PFE,Pfizer,health_care,NYSE
+PCG,PG&E Corporation,utilities,NYSE
+PM,Philip Morris International,consumer_staples,NYSE
+PSX,Phillips 66,energy,NYSE
+PNW,Pinnacle West Capital,utilities,NYSE
+PNC,PNC Financial Services,financials,NYSE
+PPG,PPG Industries,materials,NYSE
+PPL,PPL Corporation,utilities,NYSE
+PFG,Principal Financial Group,financials,NYSE
+PG,Procter & Gamble,consumer_staples,NYSE
+PGR,Progressive Corporation,financials,NYSE
+PLD,Prologis,real_estate,NYSE
+PRU,Prudential Financial,financials,NYSE
+PEG,Public Service Enterprise Group,utilities,NYSE
+PTC,PTC Inc.,technology,NYSE
+PSA,Public Storage,real_estate,NYSE
+PHM,PulteGroup,consumer_discretionary,NYSE
+PWR,Quanta Services,industrials,NYSE
+QCOM,Qualcomm,technology,NYSE
+DGX,Quest Diagnostics,health_care,NYSE
+Q,Qnity Electronics,technology,NYSE
+RL,Ralph Lauren Corporation,consumer_discretionary,NYSE
+RJF,Raymond James Financial,financials,NYSE
+RTX,RTX Corporation,industrials,NYSE
+O,Realty Income,real_estate,NYSE
+REG,Regency Centers,real_estate,NYSE
+REGN,Regeneron Pharmaceuticals,health_care,NYSE
+RF,Regions Financial Corporation,financials,NYSE
+RSG,Republic Services,industrials,NYSE
+RMD,ResMed,health_care,NYSE
+RVTY,Revvity,health_care,NYSE
+HOOD,Robinhood Markets,financials,NYSE
+ROK,Rockwell Automation,industrials,NYSE
+ROL,Rollins  Inc.,industrials,NYSE
+ROP,Roper Technologies,technology,NYSE
+ROST,Ross Stores,consumer_discretionary,NYSE
+RCL,Royal Caribbean Group,consumer_discretionary,NYSE
+SPGI,S&P Global,financials,NYSE
+CRM,Salesforce,technology,NYSE
+SNDK,Sandisk,technology,NYSE
+SBAC,SBA Communications,real_estate,NYSE
+SLB,Schlumberger,energy,NYSE
+STX,Seagate Technology,technology,NYSE
+SRE,Sempra,utilities,NYSE
+NOW,ServiceNow,technology,NYSE
+SHW,Sherwin-Williams,materials,NYSE
+SPG,Simon Property Group,real_estate,NYSE
+SWKS,Skyworks Solutions,technology,NYSE
+SJM,J.M. Smucker Company (The),consumer_staples,NYSE
+SW,Smurfit Westrock,materials,NYSE
+SNA,Snap-on,industrials,NYSE
+SOLV,Solventum,health_care,NYSE
+SO,Southern Company,utilities,NYSE
+LUV,Southwest Airlines,industrials,NYSE
+SWK,Stanley Black & Decker,industrials,NYSE
+SBUX,Starbucks,consumer_discretionary,NYSE
+STT,State Street Corporation,financials,NYSE
+STLD,Steel Dynamics,materials,NYSE
+STE,Steris,health_care,NYSE
+SYK,Stryker Corporation,health_care,NYSE
+SMCI,Supermicro,technology,NYSE
+SYF,Synchrony Financial,financials,NYSE
+SNPS,Synopsys,technology,NYSE
+SYY,Sysco,consumer_staples,NYSE
+TMUS,T-Mobile US,communication_services,NYSE
+TROW,T. Rowe Price,financials,NYSE
+TTWO,Take-Two Interactive,communication_services,NYSE
+TPR,Tapestry  Inc.,consumer_discretionary,NYSE
+TRGP,Targa Resources,energy,NYSE
+TGT,Target Corporation,consumer_staples,NYSE
+TEL,TE Connectivity,technology,NYSE
+TDY,Teledyne Technologies,technology,NYSE
+TER,Teradyne,technology,NYSE
+TSLA,Tesla  Inc.,consumer_discretionary,NYSE
+TXN,Texas Instruments,technology,NYSE
+TPL,Texas Pacific Land Corporation,energy,NYSE
+TXT,Textron,industrials,NYSE
+TMO,Thermo Fisher Scientific,health_care,NYSE
+TJX,TJX Companies,consumer_discretionary,NYSE
+TKO,TKO Group Holdings,communication_services,NYSE
+TTD,Trade Desk (The),communication_services,NYSE
+TSCO,Tractor Supply,consumer_discretionary,NYSE
+TT,Trane Technologies,industrials,NYSE
+TDG,TransDigm Group,industrials,NYSE
+TRV,Travelers Companies (The),financials,NYSE
+TRMB,Trimble Inc.,technology,NYSE
+TFC,Truist Financial,financials,NYSE
+TYL,Tyler Technologies,technology,NYSE
+TSN,Tyson Foods,consumer_staples,NYSE
+USB,U.S. Bancorp,financials,NYSE
+UBER,Uber,industrials,NYSE
+UDR,UDR  Inc.,real_estate,NYSE
+ULTA,Ulta Beauty,consumer_discretionary,NYSE
+UNP,Union Pacific Corporation,industrials,NYSE
+UAL,United Airlines Holdings,industrials,NYSE
+UPS,United Parcel Service,industrials,NYSE
+URI,United Rentals,industrials,NYSE
+UNH,UnitedHealth Group,health_care,NYSE
+UHS,Universal Health Services,health_care,NYSE
+VLO,Valero Energy,energy,NYSE
+VEEV,Veeva Systems,health_care,NYSE
+VTR,Ventas,real_estate,NYSE
+VLTO,Veralto,industrials,NYSE
+VRSN,Verisign,technology,NYSE
+VRSK,Verisk Analytics,industrials,NYSE
+VZ,Verizon,communication_services,NYSE
+VRTX,Vertex Pharmaceuticals,health_care,NYSE
+VRT,Vertiv,industrials,NYSE
+VTRS,Viatris,health_care,NYSE
+VICI,Vici Properties,real_estate,NYSE
+V,Visa Inc.,financials,NYSE
+VST,Vistra Corp.,utilities,NYSE
+VMC,Vulcan Materials Company,materials,NYSE
+WRB,W. R. Berkley Corporation,financials,NYSE
+GWW,W. W. Grainger,industrials,NYSE
+WAB,Wabtec,industrials,NYSE
+WMT,Walmart,consumer_staples,NYSE
+DIS,Walt Disney Company (The),communication_services,NYSE
+WBD,Warner Bros. Discovery,communication_services,NYSE
+WM,Waste Management,industrials,NYSE
+WAT,Waters Corporation,health_care,NYSE
+WEC,WEC Energy Group,utilities,NYSE
+WFC,Wells Fargo,financials,NYSE
+WELL,Welltower,real_estate,NYSE
+WST,West Pharmaceutical Services,health_care,NYSE
+WDC,Western Digital,technology,NYSE
+WY,Weyerhaeuser,real_estate,NYSE
+WSM,Williams-Sonoma  Inc.,consumer_discretionary,NYSE
+WMB,Williams Companies,energy,NYSE
+WTW,Willis Towers Watson,financials,NYSE
+WDAY,Workday  Inc.,technology,NYSE
+WYNN,Wynn Resorts,consumer_discretionary,NYSE
+XEL,Xcel Energy,utilities,NYSE
+XYL,Xylem Inc.,industrials,NYSE
+YUM,Yum! Brands,consumer_discretionary,NYSE
+ZBRA,Zebra Technologies,technology,NYSE
+ZBH,Zimmer Biomet,health_care,NYSE
+ZTS,Zoetis,health_care,NYSE

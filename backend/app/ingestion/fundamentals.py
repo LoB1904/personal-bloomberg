@@ -25,7 +25,7 @@ import pandas as pd
 from sqlalchemy import text
 from tenacity import (
     retry,
-    retry_if_exception_type,
+    retry_if_exception,
     stop_after_attempt,
     wait_exponential,
     before_sleep_log,
@@ -153,7 +153,7 @@ def _is_retryable(exc: BaseException) -> bool:
 
 
 @retry(
-    retry=retry_if_exception_type((requests.HTTPError, requests.ConnectionError)),
+    retry=retry_if_exception(_is_retryable),
     wait=wait_exponential(multiplier=2, min=4, max=60),
     stop=stop_after_attempt(3),
     before_sleep=before_sleep_log(logger, logging.WARNING),
